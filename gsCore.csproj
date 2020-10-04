@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4C424FA0-6656-48FD-AB9E-4195A5EDB123}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>gsCore</RootNamespace>
+    <AssemblyName>gsCore</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="behaviors\ClearBehavior.cs" />
+    <Compile Include="behaviors\RemoteGrabBehavior.cs" />
+    <Compile Include="behaviors\SceneRightClickBehavior.cs" />
+    <Compile Include="behaviors\SecondaryGrabBehavior.cs" />
+    <Compile Include="behaviors\SmoothCockpitTracker.cs" />
+    <Compile Include="behaviors\StickCycleBehavior.cs" />
+    <Compile Include="behaviors\TwoHandViewManipBehavior.cs" />
+    <Compile Include="geometry\FitInPolygon2d.cs" />
+    <Compile Include="geometry\MeshInflater.cs" />
+    <Compile Include="geometry\MeshVectorDisplacement.cs" />
+    <Compile Include="geometry\PlaneIntersectionCurves.cs" />
+    <Compile Include="geometry\VertexChangeBuilder.cs" />
+    <Compile Include="gizmos\AxisParameterEditWidget.cs" />
+    <Compile Include="gizmos\CurveHandleEditWidget.cs" />
+    <Compile Include="gizmos\EditCurveGizmo.cs" />
+    <Compile Include="gizmos\EditObjectGizmoBuilder.cs" />
+    <Compile Include="gizmos\EditPrimitiveGizmo.cs" />
+    <Compile Include="gizmos\PositionConstrainedGizmo.cs" />
+    <Compile Include="gizmos\PositionConstrainedPointWidget.cs" />
+    <Compile Include="gizmos\SnapDragGizmo.cs" />
+    <Compile Include="gizmos\SnapDragSourceWidget.cs" />
+    <None Include="platform\gsGameObjectFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="remote\NewVersionCheck.cs" />
+    <Compile Include="snapping\CurveSnapGenerator.cs" />
+    <Compile Include="snapping\DynamicSnapSolver.cs" />
+    <Compile Include="snapping\PrimitiveSnapGenerator.cs" />
+    <Compile Include="snapping\SnapElements.cs" />
+    <Compile Include="snapping\SnapSet.cs" />
+    <Compile Include="snapping\SnapStateMachine.cs" />
+    <Compile Include="snapping\StandardSnapGenerator.cs" />
+    <Compile Include="tools\DrawCurveTool.cs" />
+    <Compile Include="tools\DrawTubeTool.cs" />
+    <Compile Include="tools\MeshSmoothBrushTool.cs" />
+    <Compile Include="tools\MultiPointTool.cs" />
+    <Compile Include="tools\OldPlaneCutTool.cs" />
+    <Compile Include="tools\RadialMeasureTool.cs" />
+    <Compile Include="tools\RevolveTool.cs" />
+    <Compile Include="tools\SnapDrawPrimitivesTool.cs" />
+    <Compile Include="tools\TwoPointFaceSelectionTool.cs" />
+    <Compile Include="tools\TwoPointMeasureTool.cs" />
+    <None Include="unity\fLinesGameObject.cs" />
+    <None Include="unity\VectrosityCurveRenderer.cs" />
+    <Compile Include="util\BoundaryCurveSet.cs" />
+    <Compile Include="util\CurveDrawingUtil.cs" />
+    <Compile Include="util\CurveRevolvePreview.cs" />
+    <Compile Include="util\MeshFaceSelectionCache.cs" />
+    <Compile Include="util\MeshTubePreview.cs" />
+    <Compile Include="util\RevolvePreview.cs" />
+    <Compile Include="util\SOSectionPlane.cs" />
+    <Compile Include="util\SurfaceCurvePreview.cs" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\frame3sharp\frame3sharp.csproj">
+      <Project>{a0beac22-267b-40cd-b17c-a08ce512766e}</Project>
+      <Name>frame3sharp</Name>
+    </ProjectReference>
+    <PackageReference Include="UnityEngine">
+      <Version>2.0.1.2</Version>
+    </PackageReference>
+    <ProjectReference Include="..\geometry3Sharp\geometry3Sharp.csproj">
+      <Project>{0c518dda-28fe-44ca-9ab0-f9773974f13a}</Project>
+      <Name>geometry3Sharp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
