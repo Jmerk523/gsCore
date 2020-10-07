@@ -30,3 +30,5 @@ sysinfo.txt
 
 # ignore .meta files because we will be used as git submodule
 *.meta
+bin/
+obj/
